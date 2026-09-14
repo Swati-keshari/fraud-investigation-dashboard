@@ -1,0 +1,14 @@
+node_modules
+.next
+.vercel
+.wrangler
+*.log
+.env*.local
+.env
+.env.*
+!.env.example
+*.tsbuildinfo
+next-env.d.ts
+.open-next/
+dev.db-shm
+dev.db-wal

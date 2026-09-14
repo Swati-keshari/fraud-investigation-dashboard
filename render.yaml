@@ -1,0 +1,28 @@
+# Two Render web services:
+#   https://watch-desk-web.onrender.com   → Next.js Watch Desk UI
+#   https://watch-desk-lgbm.onrender.com  → LightGBM scoring API
+services:
+  - type: web
+    name: watch-desk-lgbm
+    runtime: python
+    rootDir: ml-service
+    plan: free
+    region: oregon
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn serve:app --bind 0.0.0.0:$PORT --timeout 120 --workers 1
+    healthCheckPath: /health
+  - type: web
+    name: watch-desk-web
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: NEXT_PUBLIC_ML_SCORE_URL
+        value: https://watch-desk-lgbm.onrender.com/score
+      - key: NEXT_PUBLIC_ML_HEALTH_URL
+        value: https://watch-desk-lgbm.onrender.com/health
+

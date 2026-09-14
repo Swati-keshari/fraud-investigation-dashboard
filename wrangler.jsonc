@@ -1,0 +1,24 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "fraud-investigation-dashboard",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-04-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": ".open-next/assets"
+  },
+  "observability": {
+    "enabled": true
+  }
+  // Uncomment once these resources exist on your account (see README ->
+  // "Cloudflare resources"). The connector can create the D1 DB / KV
+  // namespace for you, but you still copy the real IDs in here yourself.
+  //
+  // "d1_databases": [
+  //   { "binding": "DB", "database_name": "fraud-dashboard-db", "database_id": "REPLACE_ME" }
+  // ],
+  // "kv_namespaces": [
+  //   { "binding": "SESSION_KV", "id": "REPLACE_ME" }
+  // ]
+}

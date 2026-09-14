@@ -1,0 +1,26 @@
+{
+  "pr_auc": 0.5904659439020312,
+  "precision_at_k": {
+    "precision@10": 1.0,
+    "precision@25": 1.0,
+    "precision@50": 1.0,
+    "precision@100": 1.0
+  },
+  "tier_cutoffs": {
+    "critical": 0.41661135222435425,
+    "high": 0.36294124467192396,
+    "medium": 0.2552712271932492,
+    "low": 0.0
+  },
+  "feature_importance": "                    feature  importance\n0                    amount         165\n1              type_encoded          88\n10              is_cash_out          23\n6       balance_change_orig          13\n17                     step           4\n8   amount_to_balance_ratio           4\n2             oldbalanceOrg           1\n12              hour_of_day           1\n3            newbalanceOrig           1\n5            newbalanceDest           0\n9               is_transfer           0\n7       balance_change_dest           0\n4            oldbalanceDest           0\n11               amount_bin           0\n13                 is_night           0\n14           is_new_account           0\n15        customer_tx_count           0\n16     customer_fraud_count           0",
+  "confusion_matrix": [
+    [
+      13394,
+      0
+    ],
+    [
+      1606,
+      0
+    ]
+  ]
+}
