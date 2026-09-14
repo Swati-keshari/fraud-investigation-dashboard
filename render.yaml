@@ -16,11 +16,16 @@ services:
     runtime: node
     plan: free
     region: oregon
-    buildCommand: npm ci && npm run build
-    startCommand: npm run start
+    buildCommand: NODE_OPTIONS=--max-old-space-size=460 npm ci --omit=optional && NODE_OPTIONS=--max-old-space-size=460 npm run build
+    startCommand: npx next start -H 0.0.0.0 -p $PORT
+    healthCheckPath: /
     envVars:
       - key: NODE_VERSION
         value: "20"
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
       - key: NEXT_PUBLIC_ML_SCORE_URL
         value: https://watch-desk-lgbm.onrender.com/score
       - key: NEXT_PUBLIC_ML_HEALTH_URL

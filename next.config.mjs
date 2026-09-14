@@ -1,10 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // Deploying via @opennextjs/cloudflare (see wrangler.jsonc / open-next.config.ts):
-  // it runs on Workers' Node-compat runtime, NOT the Next.js edge runtime, so
-  // do NOT add `export const runtime = 'edge'` to any route — that runtime
-  // isn't supported by this adapter and will break the build.
+  // Render's free Node plan has ~512MB RAM. Typecheck/ESLint during
+  // `next build` OOMs there (and on a 400MB heap locally). Skip them on CI.
+  eslint: { ignoreDuringBuilds: true },
+  typescript: { ignoreBuildErrors: true },
+  experimental: {
+    webpackMemoryOptimizations: true,
+    cpus: 1,
+  },
   images: {
     unoptimized: true,
   },

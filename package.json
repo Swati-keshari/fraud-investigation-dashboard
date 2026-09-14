@@ -44,7 +44,6 @@
     "zustand": "^4.5.5"
   },
   "devDependencies": {
-    "@opennextjs/cloudflare": "^1.20.6",
     "@tailwindcss/container-queries": "^0.1.1",
     "@types/better-sqlite3": "^9.6.0",
     "@types/node": "^20.14.2",
@@ -54,7 +53,10 @@
     "concurrently": "^8.2.2",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.4",
-    "typescript": "^5.5.2",
+    "typescript": "^5.5.2"
+  },
+  "optionalDependencies": {
+    "@opennextjs/cloudflare": "^1.20.6",
     "wrangler": "^4.42.0"
   }
 }

@@ -17,7 +17,7 @@ Render already hosts **two** services from `render.yaml`. The GitHub **About →
 | Score a payment (model form) | https://watch-desk-lgbm.onrender.com/score |
 | This repository | https://github.com/Swati-keshari/fraud-investigation-dashboard |
 
-The Next.js UI and the Python model are both on Render. Free apps sleep; the first open after idle can take ~30 seconds.
+Free Render apps sleep; the first open after idle can take ~30 seconds. The Next.js service needs the low-memory build in `render.yaml` (typecheck during `next build` OOMs on the free 512MB plan).
 
 Vercel can host the **Next.js UI** (not LightGBM). SQLite is copied to `/tmp` there so the read-only serverless disk does not crash the app. Import the GitHub repo in Vercel as a Next.js project; do not set `output: export`. LightGBM stays on Render.
 
